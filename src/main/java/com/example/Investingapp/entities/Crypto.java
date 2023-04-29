@@ -1,17 +1,25 @@
 package com.example.Investingapp.entities;
 
-import jakarta.persistence.Entity;
-import jakarta.persistence.Id;
+import com.fasterxml.jackson.annotation.JsonIgnore;
+import jakarta.persistence.*;
+
+import java.util.Collection;
+import java.util.HashSet;
 
 @Entity
 public class Crypto {
     @Id
+    @GeneratedValue()
     private int id;
     private String name;
     private String description;
     private String currentValue;
     private String popularity;
     private String allTimeHigh;
+    @JsonIgnore
+    @ManyToMany
+    @JoinTable
+ private Collection<User> userLikes = new HashSet<>();
     public Crypto(){}
     public Crypto(String name, String description, String currentValue,String popularity, String allTimeHigh ){
         this.name = name;
@@ -21,6 +29,15 @@ public class Crypto {
         this.allTimeHigh = allTimeHigh;
 
     }
+
+    public void setId(int id) {
+        this.id = id;
+    }
+
+    public int getId() {
+        return id;
+    }
+
     public String getName() {
         return name;
     }
@@ -31,6 +48,13 @@ public class Crypto {
 
     public String getDescription() {
         return description;
+    }
+    public Collection<User> getUserLikes() {
+        return this.userLikes;
+    }
+
+    public void setUserLikes(User user) {
+        userLikes.add(user);
     }
 
     public void setDescription(String description) {
