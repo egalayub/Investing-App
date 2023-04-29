@@ -1,7 +1,9 @@
 package com.example.Investingapp.entities;
 
-import com.fasterxml.jackson.annotation.JsonIgnore;
-import jakarta.persistence.*;
+import jakarta.persistence.Entity;
+import jakarta.persistence.GeneratedValue;
+import jakarta.persistence.Id;
+import jakarta.persistence.ManyToMany;
 
 import java.util.Collection;
 import java.util.HashSet;
@@ -11,22 +13,23 @@ public class User {
     @Id
     @GeneratedValue()
     private long id;
-    private  String userName;
-    private  String firstName;
-    private  String lastName;
-    private  String password;
+    private String userName;
+    private String firstName;
+    private String lastName;
+    private String password;
     @ManyToMany
     public Collection<Crypto> favoriteCoins = new HashSet<>();
 
 
-public User(){
+    public User() {
 
-}
+    }
+
     public User(String userName, String firstName, String lastName, String password) {
-        this.userName=userName;
+        this.userName = userName;
         this.firstName = firstName;
-        this.lastName= lastName;
-        this.password=password;
+        this.lastName = lastName;
+        this.password = password;
     }
 
     public String getUserName() {
@@ -44,17 +47,21 @@ public User(){
     public String getPassword() {
         return password;
     }
-    public Collection <Crypto> getFavoriteCoins(){
-    return favoriteCoins;
+
+    public Collection<Crypto> getFavoriteCoins() {
+        return favoriteCoins;
     }
-    public void addFavoriteCoins(final Crypto favoriteCoin){
-    favoriteCoins.add(favoriteCoin);
+
+    public void addFavoriteCoins(final Crypto favoriteCoin) {
+        favoriteCoins.add(favoriteCoin);
     }
-    public void removeFavoriteCoins(final Crypto favoriteCoin){
-    favoriteCoins.remove(favoriteCoin);
+
+    public void removeFavoriteCoins(final Crypto favoriteCoin) {
+        favoriteCoins.remove(favoriteCoin);
     }
-    public  void setId (int id){
-    this.id = id;
+
+    public void setId(int id) {
+        this.id = id;
     }
 }
 

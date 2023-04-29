@@ -19,23 +19,26 @@ public class Crypto {
     @JsonIgnore
     @ManyToMany
     @JoinTable
- private Collection<User> userLikes = new HashSet<>();
-    public Crypto(){}
-    public Crypto(String name, String description, String currentValue,String popularity, String allTimeHigh ){
+    private final Collection<User> userLikes = new HashSet<>();
+
+    public Crypto() {
+    }
+
+    public Crypto(String name, String description, String currentValue, String popularity, String allTimeHigh) {
         this.name = name;
-        this.description=description;
+        this.description = description;
         this.currentValue = currentValue;
         this.popularity = popularity;
         this.allTimeHigh = allTimeHigh;
 
     }
 
-    public void setId(int id) {
-        this.id = id;
-    }
-
     public int getId() {
         return id;
+    }
+
+    public void setId(int id) {
+        this.id = id;
     }
 
     public String getName() {
@@ -49,6 +52,11 @@ public class Crypto {
     public String getDescription() {
         return description;
     }
+
+    public void setDescription(String description) {
+        this.description = description;
+    }
+
     public Collection<User> getUserLikes() {
         return this.userLikes;
     }
@@ -57,9 +65,6 @@ public class Crypto {
         userLikes.add(user);
     }
 
-    public void setDescription(String description) {
-        this.description = description;
-    }
     public String getCurrentValue() {
         return currentValue;
     }
@@ -67,6 +72,7 @@ public class Crypto {
     public void setCurrentValue(String currentValue) {
         this.currentValue = currentValue;
     }
+
     public String getPopularity() {
         return popularity;
     }
@@ -74,6 +80,7 @@ public class Crypto {
     public void setPopularity(String popularity) {
         this.popularity = popularity;
     }
+
     public String getAllTimeHigh() {
         return allTimeHigh;
     }

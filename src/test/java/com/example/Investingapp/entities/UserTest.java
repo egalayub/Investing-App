@@ -6,39 +6,44 @@ import static org.junit.jupiter.api.Assertions.*;
 
 class UserTest {
     @Test
-    void testUserName(){
-        User addUser = new User("Aegal","Ayub","Egal","1234");
-        assertEquals("Aegal",addUser.getUserName());
+    void testUserName() {
+        User addUser = new User("Aegal", "Ayub", "Egal", "1234");
+        assertEquals("Aegal", addUser.getUserName());
     }
+
     @Test
-    void testFirstName(){
-        User addUser = new User("Aegal","Ayub","Egal","1234");
-        assertEquals("Ayub",addUser.getFirstName());
+    void testFirstName() {
+        User addUser = new User("Aegal", "Ayub", "Egal", "1234");
+        assertEquals("Ayub", addUser.getFirstName());
     }
+
     @Test
-    void testLastName(){
-        User addUser = new User("Aegal","Ayub","Egal","1234");
-        assertEquals("Egal",addUser.getLastName());
+    void testLastName() {
+        User addUser = new User("Aegal", "Ayub", "Egal", "1234");
+        assertEquals("Egal", addUser.getLastName());
     }
+
     @Test
-    void testPassword(){
-        User addUser = new User("Aegal","Ayub","Egal","1234");
-        assertEquals("1234",addUser.getPassword());
+    void testPassword() {
+        User addUser = new User("Aegal", "Ayub", "Egal", "1234");
+        assertEquals("1234", addUser.getPassword());
     }
+
     @Test
-    void addFavoriteCrypto(){
-        User addUser = new User("Aegal","Ayub","Egal","1234");
+    void addFavoriteCrypto() {
+        User addUser = new User("Aegal", "Ayub", "Egal", "1234");
         Crypto crypto = new Crypto();
         Crypto crypto2 = new Crypto();
         addUser.addFavoriteCoins(crypto);
         addUser.addFavoriteCoins(crypto2);
         assertTrue(addUser.getFavoriteCoins().contains(crypto));
         assertTrue(addUser.getFavoriteCoins().contains(crypto2));
-        assertEquals(2,addUser.getFavoriteCoins().size());
+        assertEquals(2, addUser.getFavoriteCoins().size());
     }
+
     @Test
-    void RemoveFavoriteCrypto(){
-        User addUser = new User("Aegal","Ayub","Egal","1234");
+    void RemoveFavoriteCrypto() {
+        User addUser = new User("Aegal", "Ayub", "Egal", "1234");
         Crypto crypto = new Crypto();
         Crypto crypto2 = new Crypto();
         addUser.addFavoriteCoins(crypto);

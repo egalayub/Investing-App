@@ -16,6 +16,7 @@ public class UserController {
     public UserController(UserRepository userRepository) {
         this.userRepository = userRepository;
     }
+
     @GetMapping("/api/users")
     public Iterable<User> getUsers() {
         return userRepository.findAll();
