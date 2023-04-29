@@ -25,4 +25,28 @@ class UserTest {
         User addUser = new User("Aegal","Ayub","Egal","1234");
         assertEquals("1234",addUser.getPassword());
     }
+    @Test
+    void addFavoriteCrypto(){
+        User addUser = new User("Aegal","Ayub","Egal","1234");
+        Crypto crypto = new Crypto();
+        Crypto crypto2 = new Crypto();
+        addUser.addFavoriteCoins(crypto);
+        addUser.addFavoriteCoins(crypto2);
+        assertTrue(addUser.getFavoriteCoins().contains(crypto));
+        assertTrue(addUser.getFavoriteCoins().contains(crypto2));
+        assertEquals(2,addUser.getFavoriteCoins().size());
+    }
+    @Test
+    void RemoveFavoriteCrypto(){
+        User addUser = new User("Aegal","Ayub","Egal","1234");
+        Crypto crypto = new Crypto();
+        Crypto crypto2 = new Crypto();
+        addUser.addFavoriteCoins(crypto);
+        addUser.addFavoriteCoins(crypto2);
+        addUser.removeFavoriteCoins(crypto);
+        assertFalse(addUser.getFavoriteCoins().contains(crypto));
+        assertTrue(addUser.getFavoriteCoins().contains(crypto2));
+
+    }
+
 }

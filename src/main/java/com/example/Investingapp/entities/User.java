@@ -9,7 +9,7 @@ import java.util.HashSet;
 @Entity(name = "MyUsers")
 public class User {
     @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @GeneratedValue()
     private long id;
     private  String userName;
     private  String firstName;
@@ -50,8 +50,8 @@ public User(){
     public void addFavoriteCoins(final Crypto favoriteCoin){
     favoriteCoins.add(favoriteCoin);
     }
-    public void removeFavoriteCoin(final Crypto favoriteCoin){
-    favoriteCoins.remove(favoriteCoins);
+    public void removeFavoriteCoins(final Crypto favoriteCoin){
+    favoriteCoins.remove(favoriteCoin);
     }
     public  void setId (int id){
     this.id = id;
