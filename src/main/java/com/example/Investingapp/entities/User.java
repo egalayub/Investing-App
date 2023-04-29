@@ -1,17 +1,15 @@
 package com.example.Investingapp.entities;
 
-import jakarta.persistence.Entity;
-import jakarta.persistence.GeneratedValue;
-import jakarta.persistence.Id;
-import jakarta.persistence.ManyToMany;
+import com.fasterxml.jackson.annotation.JsonIgnore;
+import jakarta.persistence.*;
 
 import java.util.Collection;
 import java.util.HashSet;
 
-@Entity
+@Entity(name = "MyUsers")
 public class User {
     @Id
-    @GeneratedValue()
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private long id;
     private  String userName;
     private  String firstName;
@@ -19,6 +17,7 @@ public class User {
     private  String password;
     @ManyToMany
     public Collection<Crypto> favoriteCoins = new HashSet<>();
+
 
 public User(){
 
