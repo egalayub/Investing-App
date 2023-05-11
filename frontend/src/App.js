@@ -1,6 +1,6 @@
 import logo from './logo.svg';
 import './App.css';
-import Navbar from './NavBar/Home';
+import Home from './NavBar/Home';
 import Login from './NavBar/Login';
 import Register from './NavBar/Register';
 import {
@@ -20,6 +20,9 @@ function App() {
             </Route>
             <Route path="/Login" element = {<Login/>}>
             </Route>
+            <Route path="/" element = {<Home/>}>
+            </Route>
+
             </Routes>
 </Router>
     </div>
